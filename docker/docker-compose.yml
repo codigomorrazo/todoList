@@ -1,0 +1,15 @@
+version: '3.3'
+services: 
+  frontend:
+    image: node:lts-alpine3.14
+    working_dir: ${IMAGE_WORKDIR}
+    ports:
+      - "${LOCAL_FRONT_PORT}:8081"
+    expose:
+      - "${LOCAL_FRONT_PORT}"
+    environment:
+      - .env
+    volumes:
+      - "${HOST_APP_DIR}:${IMAGE_WORKDIR}"
+    tty: true
+
